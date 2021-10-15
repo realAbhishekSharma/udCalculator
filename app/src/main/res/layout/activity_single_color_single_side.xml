@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context=".SingleColorSingleSide">
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DesktopCalculator"
+    android:orientation="vertical"
+    android:background="@color/black90"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="Paper Size :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <Spinner
+            android:id="@+id/sizeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            style="@style/textShow"
+            android:text="GSM :-"
+            android:textAllCaps="false"
+
+            />
+        <Spinner
+            android:id="@+id/gsmSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            style="@style/boxShow"
+            android:background="@drawable/box"/>
+        <EditText
+            android:id="@+id/gsmIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="GSM"
+            android:visibility="invisible"
+            android:inputType="number"
+            android:padding="10dp"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Split :-"
+            style="@style/textShow"/>
+
+        <EditText
+            android:id="@+id/splitSize"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="3"
+            android:background="@drawable/box"
+            style="@style/boxShow"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rate/KG :-"
+            style="@style/textShow"/>
+        <EditText
+            android:id="@+id/ratePerKG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/box"
+            android:layout_marginStart="10dp"
+            style="@style/boxShow"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Quantity :-"
+            style="@style/textShow"/>
+
+        <EditText
+            android:id="@+id/quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+    <!-- Formula Layout-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+
+            android:text="Weight/Sheet :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/weightPerSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Cost/Sheet :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/costPerSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Total Sheet :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/totalSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Impression :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/impression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Paper Cost :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/papercost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:text="CTP Plate Cost :-"
+            style="@style/textShow"
+            />
+        <TextView
+            android:id="@+id/ctpCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/boxShow"
+            android:background="@drawable/box"
+            android:gravity="left"
+            android:textColor="@color/white"
+            android:text="@string/singleCtpCost"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Printing Cost :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/printingCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Total Cost :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/totalCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Cost/Pcs :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/costPerPcs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Customer Cost :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/customerCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Lamination Cost :-"
+            style="@style/textShow"/>
+
+        <Switch
+            android:id="@+id/laminationSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/laminationCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center">
+
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            style="@style/textShow"
+            android:textColor="@color/white"
+            android:background="@drawable/button_gradiant"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+
+</ScrollView>

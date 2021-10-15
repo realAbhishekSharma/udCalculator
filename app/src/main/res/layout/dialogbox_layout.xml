@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_gradiant"
+        android:padding="15dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Length"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_marginEnd="50dp"
+                style="@style/textShow"
+                />
+
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Breadth"
+                android:padding="10dp"
+                style="@style/textShow"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/lengthIn"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:hint="Lenght"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/box"
+                style="@style/boxShow"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                style="@style/textShow"
+                android:text="X"
+                android:textSize="30dp"/>
+
+            <EditText
+                android:id="@+id/breadthIn"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:hint="Breadth"
+                android:layout_margin="5dp"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:background="@drawable/box"
+                style="@style/boxShow"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:textAllCaps="false"
+                android:padding="10dp"
+                android:layout_gravity="start"
+                android:background="@drawable/button_gradiant"
+                style="@style/boxShow"
+                android:layout_marginEnd="30dp"
+                />
+
+            <Button
+                android:id="@+id/okay"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="Ok"
+                android:padding="10dp"
+                android:layout_gravity="end"
+                android:background="@drawable/button_gradiant"
+                style="@style/boxShow"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

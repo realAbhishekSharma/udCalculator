@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context=".BillBookMiniOffset">
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DesktopCalculator"
+    android:orientation="vertical"
+    android:background="@color/black90"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="Bill Quantity :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/billQuantityIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bill Size :-"
+            style="@style/textShow"/>
+
+        <EditText
+            android:id="@+id/billSizeIn"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="3"
+            android:background="@drawable/box"
+            style="@style/boxShow"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            style="@style/textShow"
+            android:layout_width="110dp"
+            android:text="Bill Paper :-"
+            android:textAllCaps="false"
+
+            />
+        <Spinner
+            android:id="@+id/billPapperSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            style="@style/boxShow"
+            android:background="@drawable/box"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Print Size :-"
+            style="@style/textShow"/>
+
+        <Spinner
+            android:id="@+id/printSizeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            style="@style/boxShow"
+            android:background="@drawable/box"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+
+            android:text="Copies :-"
+            style="@style/textShow"/>
+
+        <Spinner
+            android:id="@+id/copiesSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            style="@style/boxShow"
+            android:background="@drawable/box"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="65dp"
+            android:text="Type :-"
+            style="@style/textShow"
+            android:paddingTop="5dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal">
+
+
+                <Spinner
+                    android:id="@+id/typeSpinnerA"
+                    android:layout_width="55dp"
+                    android:layout_height="40dp"
+                    android:visibility="invisible"
+                    style="@style/boxShow"
+                    android:background="@drawable/box"
+                    android:layout_marginEnd="10dp"/>
+
+                <Spinner
+                    android:id="@+id/typeSpinnerB"
+                    android:layout_width="55dp"
+                    android:layout_height="40dp"
+                    android:visibility="invisible"
+                    style="@style/boxShow"
+                    android:background="@drawable/box"
+                    android:layout_marginEnd="10dp"/>
+
+                <Spinner
+                    android:id="@+id/typeSpinnerC"
+                    android:layout_width="55dp"
+                    android:layout_height="40dp"
+                    style="@style/boxShow"
+                    android:background="@drawable/box"
+                    android:layout_marginEnd="10dp"/>
+
+                <Spinner
+                    android:id="@+id/typeSpinnerD"
+                    android:layout_width="55dp"
+                    android:layout_height="40dp"
+                    style="@style/boxShow"
+                    android:background="@drawable/box"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Binding Cost :-"
+            style="@style/textShow"/>
+
+        <EditText
+            android:id="@+id/bindingCostIn"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="2"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="="
+            style="@style/textShow"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
+
+
+        <TextView
+            android:id="@+id/bindingCostOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="1 Paper Sheet :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/oneColorSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Total Sheet :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/totalSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Impression :-"
+            style="@style/textShow"/>
+        <Switch
+            android:id="@+id/impressionSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"/>
+
+        <TextView
+            android:id="@+id/impression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Paper Cost :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/paperCost1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Printing Cost :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/printingCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Total Cost :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/totalCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Cost/Book :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/costPerBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Customer Cost :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/customerCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center">
+
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            style="@style/textShow"
+            android:textColor="@color/white"
+            android:background="@drawable/button_gradiant"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+
+</ScrollView>

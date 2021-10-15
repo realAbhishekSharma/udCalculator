@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black90"
+tools:context=".PaperCost">
+
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DesktopCalculator"
+    android:orientation="vertical"
+    android:background="@color/black90"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="Paper Size :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <Spinner
+            android:id="@+id/sizeSpinnerPC"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            style="@style/textShow"
+            android:text="GSM :-"
+            android:textAllCaps="false"
+
+            />
+        <Spinner
+            android:id="@+id/gsmSpinnerPC"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            style="@style/boxShow"
+            android:background="@drawable/box"/>
+        <EditText
+            android:id="@+id/gsmIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="GSM"
+            android:visibility="invisible"
+            android:inputType="number"
+            android:padding="10dp"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Rate/KG :-"
+            style="@style/textShow"/>
+        <EditText
+            android:id="@+id/ratePerKGPC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Paper Sheet :-"
+            style="@style/textShow"/>
+
+        <EditText
+            android:id="@+id/paperSheetPC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <!-- Formula Layout-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+
+            android:text="Paper Weight :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/paperWeightPC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Paper Cost :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/paperCostPC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:text="Rate/Sheet :-"
+            style="@style/textShow"/>
+        <TextView
+            android:id="@+id/ratePerSheetPC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculating"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center">
+
+
+        <Button
+            android:id="@+id/resetPC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            style="@style/textShow"
+            android:textColor="@color/white"
+            android:background="@drawable/button_gradiant"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+</ScrollView>

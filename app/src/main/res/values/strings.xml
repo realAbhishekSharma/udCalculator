@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">UD Calculator</string>
+    <string name="title_activity_single_side_four_color">Single Side Four Color</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">UD Calculator</string>
+    <string name="nav_header_subtitle">uniquedesktopms@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Single Side - 4 Color</string>
+    <string name="menu_gallery">Double Side - 4 Color</string>
+    <string name="menu_slideshow">Bill Book (Mini Offset)</string>
+
+    <string name="fourCtpCost">1400</string>
+    <string name="singleCtpCost">300</string>
+    <string name="calculating">Calculating...</string>
+</resources>
