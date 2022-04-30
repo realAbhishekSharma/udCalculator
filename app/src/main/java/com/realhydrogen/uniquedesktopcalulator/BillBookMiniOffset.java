@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -22,11 +21,13 @@ import java.util.Arrays;
 
 public class BillBookMiniOffset extends AppCompatActivity {
 
-    final float MAPLITHO_RATE = 2.4F;
-    final float RYG_RATE = 1.4F;
-    final float WHITE = 1f;
-    final float BOND = 3.5F;
-
+    final float MAPLITHO_RATE = 2.6F;
+    final float RYG_RATE = 1.5F;
+    final float WHITE = 1.25f;
+    final float BOND = 4F;
+    final float SRIPUR = 4.5F;
+    float PAPER_RATE = 0;
+/*
     ArrayList<String> billPaperArray = new ArrayList<>();
     final String[] billPaperList = new String[]{"25","50","100"};
 
@@ -37,33 +38,38 @@ public class BillBookMiniOffset extends AppCompatActivity {
     final String[] copiesList = new String[]{"2","3","4"};
 
     ArrayList<String> paperTypeArray = new ArrayList<>();
-    final String[] paperTypeList = new String[]{"Maplitho","Red","Yellow","Green", "White", "Bond"};
+    final String[] paperTypeList = new String[]{"Maplitho","Red","Yellow","Green", "White", "Bond"};*/
 
     Spinner billPaperSpinner, printSizeSpinner, copiesSpinner, paperTypeSpinnerA, paperTypeSpinnerB, paperTypeSpinnerC, paperTypeSpinnerD;
     TextView oneColorSheetView, bindingCostOut, totalSheetView, impressionView, paperCostView, printingCostView, totalCostView, costPerBookView, customerCostView;
-    EditText billQuantityIn, billSizeIn, bindingCostIn;
+    EditText billQuantityIn, billSizeIn, bindingCostIn,printSizeIn,billPaperIn, copiesIn;
     Switch impressionSwitch;
     Button reset;
 
     // All Variable
-    int billQuantity, billSize, bindingCost;
-    int billPaper, printSize,copies;
-    float typeA =0F, typeB=0F, typeC=0F, typeD=0F;
-    int onePaperSheet, totalSheet, totalBindingCost,impression,paperCost, printingCost,totalCost;
-    float costPerBook,customerCost;
+    int billQuantity =0, billSize=0, bindingCost=0;
+    int billPaper=0, printSize=0,copies=0;/*
+    float typeA =0F, typeB=0F, typeC=0F, typeD=0F;*/
+    int onePaperSheet=0, totalSheet=0, totalBindingCost=0,impression=0,paperCost=0, printingCost=0,totalCost=0;
+    float costPerBook=0,customerCost=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bill_book_mini_offset);
+
         if (BillSelection.billCheck() == 1){
             getSupportActionBar().setTitle("Bill Normal Paper");
+            PAPER_RATE = RYG_RATE;
         }else if (BillSelection.billCheck() == 2){
             getSupportActionBar().setTitle("Bill Maplitho Paper");
+            PAPER_RATE = MAPLITHO_RATE;
         }else if (BillSelection.billCheck() == 3){
             getSupportActionBar().setTitle("Bill Bond Paper");
+            PAPER_RATE = BOND;
         }else if (BillSelection.billCheck() == 4){
             getSupportActionBar().setTitle("Bill Sripur Paper");
+            PAPER_RATE = SRIPUR;
         }
 
         // TextView Casting
@@ -78,22 +84,27 @@ public class BillBookMiniOffset extends AppCompatActivity {
         customerCostView = (TextView) findViewById(R.id.customerCost);
 
         //Spinner Casting
-        billPaperSpinner = (Spinner) findViewById(R.id.billPapperSpinner);
+        /*billPaperSpinner = (Spinner) findViewById(R.id.billPapperSpinner);
         printSizeSpinner = (Spinner) findViewById(R.id.printSizeSpinner);
         copiesSpinner = (Spinner) findViewById(R.id.copiesSpinner);
         paperTypeSpinnerA = (Spinner) findViewById(R.id.typeSpinnerA);
         paperTypeSpinnerB = (Spinner) findViewById(R.id.typeSpinnerB);
         paperTypeSpinnerC = (Spinner) findViewById(R.id.typeSpinnerC);
-        paperTypeSpinnerD = (Spinner) findViewById(R.id.typeSpinnerD);
+        paperTypeSpinnerD = (Spinner) findViewById(R.id.typeSpinnerD);*/
 
         //EditText Casting
         billQuantityIn = (EditText) findViewById(R.id.billQuantityIn);
         billSizeIn= (EditText) findViewById(R.id.billSizeIn);
         bindingCostIn = (EditText) findViewById(R.id.bindingCostIn);
 
+        printSizeIn = (EditText) findViewById(R.id.printSizeIn);
+        billPaperIn = (EditText) findViewById(R.id.billPaperIn);
+        copiesIn = (EditText) findViewById(R.id.copiesIn);
+
         //Button Casting
         reset = (Button) findViewById(R.id.reset);
         impressionSwitch = (Switch) findViewById(R.id.impressionSwitch);
+/*
 
         //Bill Paper initializing
         billPaperArray.addAll(Arrays.asList(billPaperList));
@@ -113,13 +124,15 @@ public class BillBookMiniOffset extends AppCompatActivity {
         //Paper Type Initializing
         paperTypeArray.addAll(Arrays.asList(paperTypeList));
         final ArrayAdapter<String> paperTypeAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, paperTypeArray);
+        billPaperSpinner.setAdapter(paperTypeAdapter);
         paperTypeSpinnerA.setAdapter(paperTypeAdapter);
         paperTypeSpinnerB.setAdapter(paperTypeAdapter);
         paperTypeSpinnerC.setAdapter(paperTypeAdapter);
         paperTypeSpinnerD.setAdapter(paperTypeAdapter);
+*/
 
         //Change Listener of Bill Size
-        billSizeIn.addTextChangedListener(new TextWatcher() {
+        billQuantityIn.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -128,15 +141,14 @@ public class BillBookMiniOffset extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() == 0){
-                    resetTextView();
-                    Toast.makeText(BillBookMiniOffset.this, "Bill Size Can't be Empty.", Toast.LENGTH_SHORT).show();
+                    resetCalculation();
 
-                }else if (billQuantityIn.getText().toString().equals("")){
-                    Toast.makeText(BillBookMiniOffset.this, "Fill Bill Quantity First.", Toast.LENGTH_SHORT).show();
-                }else {
-                    billQuantity = Integer.parseInt(billQuantityIn.getText().toString());
-                    billSize = Integer.parseInt(billSizeIn.getText().toString());
-                    virtualDone();
+                }else{
+                    if (chekValue()){
+                        virtualDone();
+                    }
+
+
                 }
 
 
@@ -147,6 +159,111 @@ public class BillBookMiniOffset extends AppCompatActivity {
 
             }
         });
+
+        billSizeIn.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() == 0){
+                    resetCalculation();
+
+                }else{
+                    if (chekValue()){
+                        virtualDone();
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        billPaperIn.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() == 0){
+                    resetCalculation();
+
+                }else{
+                    if (chekValue()){
+                        virtualDone();
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        printSizeIn.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() == 0){
+                    resetCalculation();
+
+                }else{
+                    if (chekValue()){
+                        virtualDone();
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        copiesIn.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() == 0){
+                    resetCalculation();
+
+                }else{
+                    if (chekValue()){
+                        virtualDone();
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+/*
 
         // Bill Paper Spinner Selection
         billPaperSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -306,8 +423,8 @@ public class BillBookMiniOffset extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (billQuantityIn.getText().toString().equals("") && paperTypeSpinnerC.getSelectedItemPosition() != 0 ){
-                    Toast.makeText(BillBookMiniOffset.this, "Also Fill Bill Quantity.", Toast.LENGTH_SHORT).show();
+                        if (billQuantityIn.getText().toString().equals("") && paperTypeSpinnerC.getSelectedItemPosition() != 0 ){
+                            Toast.makeText(BillBookMiniOffset.this, "Also Fill Bill Quantity.", Toast.LENGTH_SHORT).show();
                 }
                 if (billSizeIn.getText().toString().equals("") && paperTypeSpinnerC.getSelectedItemPosition() != 0){
                     Toast.makeText(BillBookMiniOffset.this, "Also Fill Bill Size.", Toast.LENGTH_SHORT).show();
@@ -367,6 +484,7 @@ public class BillBookMiniOffset extends AppCompatActivity {
 
             }
         });
+*/
 
         // Change Listener of Binding Cost
         bindingCostIn.addTextChangedListener(new TextWatcher() {
@@ -378,16 +496,12 @@ public class BillBookMiniOffset extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() == 0){
-                    resetTextView();
-                    Toast.makeText(BillBookMiniOffset.this, "Binding Cost Can't be Empty.", Toast.LENGTH_SHORT).show();
+                    resetCalculation();
 
-                }else if (bindingCostIn.getText().toString().equals("")){
-                    Toast.makeText(BillBookMiniOffset.this, "Fill Bill Quantity First.", Toast.LENGTH_SHORT).show();
-                }else if (billSizeIn.getText().toString().equals("")) {
-                    Toast.makeText(BillBookMiniOffset.this, "Also Fill Bill Size.", Toast.LENGTH_SHORT).show();
-                }else {
-                    bindingCost = Integer.parseInt(bindingCostIn.getText().toString());
-                    virtualDone();
+                }else{
+                    if (chekValue()){
+                        virtualDone();
+                    }
                 }
 
             }
@@ -422,20 +536,24 @@ public class BillBookMiniOffset extends AppCompatActivity {
     private void resetAll() {
         billQuantityIn.setText("");
         billSizeIn.setText("");
-        billPaperSpinner.setSelection(0);
+        billPaperIn.setText("");
+        printSizeIn.setText("");
+        copiesIn.setText("");
+
+
+
+        /*billPaperSpinner.setSelection(0);
         printSizeSpinner.setSelection(0);
         copiesSpinner.setSelection(0);
         paperTypeSpinnerA.setSelection(0);
         paperTypeSpinnerB.setSelection(0);
         paperTypeSpinnerC.setSelection(0);
-        paperTypeSpinnerD.setSelection(0);
+        paperTypeSpinnerD.setSelection(0);*/
         bindingCostIn.setText("");
-        resetTextView();
-
-
+        resetCalculation();
     }
 
-    private void resetTextView() {
+    private void resetCalculation() {
         oneColorSheetView.setText("");
         bindingCostOut.setText("");
         totalSheetView.setText("");
@@ -447,8 +565,36 @@ public class BillBookMiniOffset extends AppCompatActivity {
         customerCostView.setText("");
 
     }
+    private void readValue(){
+        billQuantity = Integer.parseInt(billQuantityIn.getText().toString());
+        billSize = Integer.parseInt(billSizeIn.getText().toString());
+        billPaper = Integer.parseInt(billPaperIn.getText().toString());
+        printSize = Integer.parseInt(printSizeIn.getText().toString());
+        copies = Integer.parseInt(copiesIn.getText().toString());
+        bindingCost = Integer.parseInt(bindingCostIn.getText().toString());
+    }
+    private boolean chekValue(){
+        if( billQuantityIn.getText().toString().equals("")
+                || billSizeIn.getText().toString().equals("")
+                || billPaperIn.getText().toString().equals("")
+                || printSizeIn.getText().toString().equals("")
+                || copiesIn.getText().toString().equals("")
+                || bindingCostIn.getText().toString().equals("")){
+            return false;
+        }
+        return true;
+    }
 
     private void virtualDone() {
+        readValue();
+        /*if( billQuantityIn.getText().toString().equals("")
+                || billSizeIn.getText().toString().equals("")
+                || billPaperIn.getText().toString().equals("")
+                || printSizeIn.getText().toString().equals("")
+                || copiesIn.getText().toString().equals("")
+                || bindingCostIn.getText().toString().equals("")){
+            return;
+        }*/
 
         if (bindingCostIn.getText().toString().equals("") || billSizeIn.getText().toString().equals("") || bindingCostIn.getText().toString().equals("")) {
             if (billQuantityIn.getText().toString().equals("")) {
@@ -467,7 +613,7 @@ public class BillBookMiniOffset extends AppCompatActivity {
                 impression = onePaperSheet *printSize*(copies -1);
             }
 
-            if (paperTypeSpinnerD.getVisibility() == View.VISIBLE && paperTypeSpinnerC.getVisibility() == View.VISIBLE){
+            /*if (paperTypeSpinnerD.getVisibility() == View.VISIBLE && paperTypeSpinnerC.getVisibility() == View.VISIBLE){
                 paperCost = (int) Math.ceil(onePaperSheet *(typeC+typeD));
                 if (paperTypeSpinnerB.getVisibility() == View.VISIBLE){
                     paperCost = (int) Math.ceil(onePaperSheet *(typeB+typeC+typeD));
@@ -475,7 +621,9 @@ public class BillBookMiniOffset extends AppCompatActivity {
                         paperCost = (int) Math.ceil(onePaperSheet *(typeA+typeB+typeC+typeD));
                     }
                 }
-            }
+            }*/
+
+            paperCost = (int) Math.ceil((copies-1)*onePaperSheet*PAPER_RATE +(onePaperSheet));
 
 
             if (impression - 1000 < 0) {

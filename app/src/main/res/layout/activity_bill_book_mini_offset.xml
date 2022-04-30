@@ -57,6 +57,7 @@ tools:context=".BillBookMiniOffset">
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:text=""
             android:maxLength="3"
             android:background="@drawable/box"
             style="@style/boxShow"
@@ -70,12 +71,22 @@ tools:context=".BillBookMiniOffset">
             android:textAllCaps="false"
 
             />
-        <Spinner
+
+        <!--<Spinner
             android:id="@+id/billPapperSpinner"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             style="@style/boxShow"
-            android:background="@drawable/box"/>
+            android:background="@drawable/box"/>-->
+
+        <EditText
+            android:id="@+id/billPaperIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:inputType="number"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
 
 
     </LinearLayout>
@@ -92,12 +103,21 @@ tools:context=".BillBookMiniOffset">
             android:text="Print Size :-"
             style="@style/textShow"/>
 
-        <Spinner
+        <!--<Spinner
             android:id="@+id/printSizeSpinner"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:visibility="invisible"
             style="@style/boxShow"
-            android:background="@drawable/box"/>
+            android:background="@drawable/box"/>-->
+        <EditText
+            android:id="@+id/printSizeIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text=""
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
 
     </LinearLayout>
 
@@ -113,18 +133,27 @@ tools:context=".BillBookMiniOffset">
             android:text="Copies :-"
             style="@style/textShow"/>
 
-        <Spinner
+        <!--<Spinner
             android:id="@+id/copiesSpinner"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             style="@style/boxShow"
-            android:background="@drawable/box"/>
+            android:background="@drawable/box"/>-->
+
+        <EditText
+            android:id="@+id/copiesIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text=""
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
 
     </LinearLayout>
 
 
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -187,7 +216,7 @@ tools:context=".BillBookMiniOffset">
             </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+    </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -205,6 +234,7 @@ tools:context=".BillBookMiniOffset">
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:text=""
             android:maxLength="2"
             android:background="@drawable/box"
             style="@style/boxShow"/>

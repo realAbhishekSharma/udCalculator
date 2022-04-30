@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class FrontList extends AppCompatActivity {
 
     private static int colorCheck; // 1 for Four Color and 0 for Single Color // 2 for Sticker
     Button fourColor, singleColor, billPrint,stickerPrint, paperCostCalculator;
+    ImageView logoo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,15 @@ public class FrontList extends AppCompatActivity {
         billPrint = (Button) findViewById(R.id.billPrint);
         stickerPrint = (Button) findViewById(R.id.stickerPrint);
         paperCostCalculator = (Button) findViewById(R.id.paperCostCalculator);
+        logoo = (ImageView) findViewById(R.id.loggo);
+        final Intent intentSetting = new Intent(this, Setting.class);
+
+        logoo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intentSetting);
+            }
+        });
 
         fourColor.setOnClickListener(new View.OnClickListener() {
             @Override
