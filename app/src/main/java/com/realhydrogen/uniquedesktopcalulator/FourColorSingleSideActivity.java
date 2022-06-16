@@ -1,8 +1,8 @@
 package com.realhydrogen.uniquedesktopcalulator;
 
 import android.app.AlertDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.security.keystore.StrongBoxUnavailableException;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -28,7 +28,11 @@ public class FourColorSingleSideActivity extends AppCompatActivity {
     ArrayList<String> gsmArray = new ArrayList<>();
     String[] gsmList = new String[]{"Select","58","70","90","100","130","150", "200", "230", "250", "300"};
     private final float W_KG_VALUE  = 1550000F;
-    private final int NORMAL_PRINTING_COST_4_COLOR  = 2000;
+    private int FIRST_IMP_PRINTING_COST_4_COLOR;
+    private float SECOND_IMP_4_COLOR;
+
+    SharedPreferences databasePref;
+    final String DATABASE = "MyData";
 
     Spinner sizeSpinner, gsmSpinner;
     Switch laminationSwitch;
@@ -52,7 +56,11 @@ public class FourColorSingleSideActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_four_color_single_side);
-        getSupportActionBar().setTitle("Four Color Single Side");
+
+        databasePref = getApplicationContext().getSharedPreferences(DATABASE, MODE_PRIVATE);
+        FIRST_IMP_PRINTING_COST_4_COLOR = databasePref.getInt(getResources().getString(R.string.FOUR_FIRST_IMP), Integer.parseInt(getResources().getString(R.string.FOUR_FIRST_IMP_VALUE)));
+        SECOND_IMP_4_COLOR = databasePref.getFloat(getResources().getString(R.string.FOUR_SECOND_IMP), Float.parseFloat(getResources().getString(R.string.FOUR_SECOND_IMP_VALUE)));
+        getSupportActionBar().setTitle("Four Color Single Side ("+SECOND_IMP_4_COLOR+") ("+FIRST_IMP_PRINTING_COST_4_COLOR+")" );
 
         //Formula TextView Casting
         weightPerSheetView = (TextView) findViewById(R.id.weightPerSheet);
@@ -70,6 +78,7 @@ public class FourColorSingleSideActivity extends AppCompatActivity {
         reset = (Button) findViewById(R.id.reset);
         laminationSwitch = (Switch) findViewById(R.id.laminationSwitch);
         ctpCost = (TextView) findViewById(R.id.ctpCost);
+        ctpCost.setText(databasePref.getInt(getResources().getString(R.string.FOUR_CTP_RATE), Integer.parseInt(getResources().getString(R.string.FOUR_CTP_RATE_VALUE)))+"");
         ratePerKGInput = (EditText) findViewById(R.id.ratePerKG);
         splitSizeInput = (EditText) findViewById(R.id.splitSize);
         quantityInput = (EditText) findViewById(R.id.quantity);
@@ -364,9 +373,9 @@ public class FourColorSingleSideActivity extends AppCompatActivity {
             paperCost = costPerSheet * totalSheet;
 
             if (impression - 1000 < 0) {
-                printingCost = NORMAL_PRINTING_COST_4_COLOR;
+                printingCost = FIRST_IMP_PRINTING_COST_4_COLOR;
             } else {
-                printingCost = NORMAL_PRINTING_COST_4_COLOR + (impression - 1000);
+                printingCost = FIRST_IMP_PRINTING_COST_4_COLOR + (int) Math.ceil((float)(impression - 1000)*SECOND_IMP_4_COLOR);
             }
 
             lamination = (int) (0.01F * length * breadth * totalSheet);

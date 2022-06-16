@@ -15,4 +15,44 @@
     <string name="fourCtpCost">1400</string>
     <string name="singleCtpCost">300</string>
     <string name="calculating">Calculating...</string>
+
+<!--    PAPER TYPE-->
+    <string name="MAPHLITO">MAPHLITO</string>
+    <string name="MAPHLITO_VALUE">2.6</string>
+
+    <string name="RYG_PAPER">RYG</string>
+    <string name="RYG_PAPER_VALUE">1.7</string>
+
+    <string name="WHITE">WHITE</string>
+    <string name="WHITE_VALUE">1.25</string>
+
+    <string name="BOND">BOND</string>
+    <string name="BOND_VALUE">4</string>
+
+    <string name="SRIPUR">SRIPUR</string>
+    <string name="SRIPUR_VALUE">4.5</string>
+
+
+<!--    SINGLE COLOR-->
+    <string name="SINGLE_CTP_RATE">SINGLECTP</string>
+    <string name="SINGLE_CTP_RATE_VALUE">300</string>
+
+    <string name="SINGLE_FIRST_IMP">SINGLEFIRSTIMP</string>
+    <string name="SINGLE_FIRST_IMP_VALUE">625</string>
+
+    <string name="SINGLE_SECOND_IMP">SINGLESECONDIMP</string>
+    <string name="SINGLE_SECOND_IMP_VALUE">0.25</string>
+
+
+<!--    FOUR COLOR-->
+    <string name="FOUR_CTP_RATE">FOURCTP</string>
+    <string name="FOUR_CTP_RATE_VALUE">1400</string>
+
+    <string name="FOUR_FIRST_IMP">FOURFIRSTIMP</string>
+    <string name="FOUR_FIRST_IMP_VALUE">2000</string>
+
+    <string name="FOUR_SECOND_IMP">FOURSECONDIMP</string>
+    <string name="FOUR_SECOND_IMP_VALUE">1.0</string>
+
+
 </resources>

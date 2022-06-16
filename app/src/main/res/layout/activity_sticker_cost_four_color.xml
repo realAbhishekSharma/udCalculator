@@ -186,8 +186,7 @@ tools:context=".StickerCostFourColor">
             style="@style/boxShow"
             android:background="@drawable/box"
             android:gravity="left"
-            android:textColor="@color/white"
-            android:text="@string/fourCtpCost"/>
+            android:textColor="@color/white"/>
 
 
     </LinearLayout>

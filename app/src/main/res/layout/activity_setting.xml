@@ -1,39 +1,353 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Setting">
 
-    <Button
-        android:id="@+id/button"
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DesktopCalculator"
+    android:orientation="vertical"
+    android:background="@color/black90"
+    android:padding="15dp">
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/getValue"
-        app:layout_constraintStart_toStartOf="@+id/getValue"
-        app:layout_constraintTop_toBottomOf="@+id/getValue" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="Paper Type"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/textShow"/>
 
-    <EditText
-        android:id="@+id/getValue"
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="Maphlitho :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/maphlithoRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
 
-    <TextView
-        android:id="@+id/textView2"
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="RYG Paper :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/RYGRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="White :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/whiteRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="Bond :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/bondRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="Sripur :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/sripurRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="Single Color"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/textShow"/>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="CTP Rate :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/singleCTPRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="1st IMP Rate :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/single1stRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="2nd IMP Rate :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/single2ndRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="Four Color"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/textShow"/>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="CTP Rate :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/fourCTPRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="1st IMP Rate :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/four1stRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        >
+        <TextView
+            android:text="2nd IMP Rate :-"
+            android:textAllCaps="false"
+            style="@style/textShow"
+            />
+        <EditText
+            android:id="@+id/four2ndRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:background="@drawable/box"
+            style="@style/boxShow"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center">
+
+
+        <Button
+            android:id="@+id/saveSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            style="@style/textShow"
+            android:textColor="@color/white"
+            android:background="@drawable/button_gradiant"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+</LinearLayout>
+
+</ScrollView>

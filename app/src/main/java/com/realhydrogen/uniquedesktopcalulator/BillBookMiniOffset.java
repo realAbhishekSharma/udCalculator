@@ -2,6 +2,7 @@ package com.realhydrogen.uniquedesktopcalulator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,12 +22,15 @@ import java.util.Arrays;
 
 public class BillBookMiniOffset extends AppCompatActivity {
 
-    final float MAPLITHO_RATE = 2.6F;
-    final float RYG_RATE = 1.5F;
-    final float WHITE = 1.25f;
-    final float BOND = 4F;
-    final float SRIPUR = 4.5F;
+    float MAPLITHO_RATE;
+    float RYG_RATE;
+    float WHITE;
+    float BOND;
+    float SRIPUR;
     float PAPER_RATE = 0;
+
+    SharedPreferences databasePref;
+    final String DATABASE = "MyData";
 /*
     ArrayList<String> billPaperArray = new ArrayList<>();
     final String[] billPaperList = new String[]{"25","50","100"};
@@ -58,17 +62,25 @@ public class BillBookMiniOffset extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bill_book_mini_offset);
 
+        databasePref = getApplicationContext().getSharedPreferences(DATABASE, MODE_PRIVATE);
+        MAPLITHO_RATE = databasePref.getFloat(getResources().getString(R.string.MAPHLITO), Float.parseFloat(getResources().getString(R.string.MAPHLITO_VALUE)));
+        RYG_RATE = databasePref.getFloat(getResources().getString(R.string.RYG_PAPER), Float.parseFloat(getResources().getString(R.string.RYG_PAPER_VALUE)));
+        WHITE = databasePref.getFloat(getResources().getString(R.string.WHITE), Float.parseFloat(getResources().getString(R.string.WHITE_VALUE)));
+        BOND = databasePref.getFloat(getResources().getString(R.string.BOND), Float.parseFloat(getResources().getString(R.string.BOND_VALUE)));
+        SRIPUR = databasePref.getFloat(getResources().getString(R.string.SRIPUR), Float.parseFloat(getResources().getString(R.string.SRIPUR_VALUE)));
+
+
         if (BillSelection.billCheck() == 1){
-            getSupportActionBar().setTitle("Bill Normal Paper");
+            getSupportActionBar().setTitle("Bill Normal Paper ("+RYG_RATE+")");
             PAPER_RATE = RYG_RATE;
         }else if (BillSelection.billCheck() == 2){
-            getSupportActionBar().setTitle("Bill Maplitho Paper");
+            getSupportActionBar().setTitle("Bill Maplitho Paper ("+MAPLITHO_RATE+")");
             PAPER_RATE = MAPLITHO_RATE;
         }else if (BillSelection.billCheck() == 3){
-            getSupportActionBar().setTitle("Bill Bond Paper");
+            getSupportActionBar().setTitle("Bill Bond Paper ("+BOND+")");
             PAPER_RATE = BOND;
         }else if (BillSelection.billCheck() == 4){
-            getSupportActionBar().setTitle("Bill Sripur Paper");
+            getSupportActionBar().setTitle("Bill Sripur Paper ("+SRIPUR+")");
             PAPER_RATE = SRIPUR;
         }
 

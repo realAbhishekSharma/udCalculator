@@ -186,8 +186,7 @@ tools:context=".StickerCostSingleColor">
             style="@style/boxShow"
             android:background="@drawable/box"
             android:gravity="left"
-            android:textColor="@color/white"
-            android:text="@string/singleCtpCost"/>
+            android:textColor="@color/white"/>
 
 
     </LinearLayout>

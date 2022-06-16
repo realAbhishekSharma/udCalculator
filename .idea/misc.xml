@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjects/Unique Desktop Calculator/udCalculator/app/src/main/res/layout/activity_bill_book_mini_offset.xml" value="0.3625" />
+        <entry key="..\:/AndroidProjects/Unique Desktop Calculator/udCalculator/app/src/main/res/layout/activity_bill_selection.xml" value="0.3625" />
+        <entry key="..\:/AndroidProjects/Unique Desktop Calculator/udCalculator/app/src/main/res/layout/activity_four_color_double_side.xml" value="0.3625" />
+        <entry key="..\:/AndroidProjects/Unique Desktop Calculator/udCalculator/app/src/main/res/layout/activity_four_color_single_side.xml" value="0.3625" />
+        <entry key="..\:/AndroidProjects/Unique Desktop Calculator/udCalculator/app/src/main/res/layout/activity_front_list.xml" value="0.3625" />
+        <entry key="..\:/AndroidProjects/Unique Desktop Calculator/udCalculator/app/src/main/res/layout/activity_paper_cost.xml" value="0.3625" />
+        <entry key="..\:/AndroidProjects/Unique Desktop Calculator/udCalculator/app/src/main/res/layout/activity_setting.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/Unique Desktop Calculator/udCalculator/app/src/main/res/layout/activity_single_color_double_side.xml" value="0.20260416666666667" />
+        <entry key="..\:/AndroidProjects/Unique Desktop Calculator/udCalculator/app/src/main/res/layout/activity_sticker_cost_four_color.xml" value="0.3625" />
+        <entry key="..\:/AndroidProjects/Unique Desktop Calculator/udCalculator/app/src/main/res/layout/activity_sticker_cost_single_color.xml" value="0.3625" />
         <entry key="..\:/Back Up/New folder/UniqueDesktopCalulator/app/src/main/res/drawable/bill_book.xml" value="0.2456081081081081" />
         <entry key="..\:/Back Up/New folder/UniqueDesktopCalulator/app/src/main/res/drawable/box.xml" value="0.2456081081081081" />
         <entry key="..\:/Back Up/New folder/UniqueDesktopCalulator/app/src/main/res/drawable/button_gradiant.xml" value="0.2456081081081081" />

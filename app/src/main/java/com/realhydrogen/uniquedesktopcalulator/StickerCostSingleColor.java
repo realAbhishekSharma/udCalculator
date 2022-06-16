@@ -2,6 +2,7 @@ package com.realhydrogen.uniquedesktopcalulator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,7 +15,11 @@ import android.widget.TextView;
 
 public class StickerCostSingleColor extends AppCompatActivity {
 
-    private final int NORMAL_PRINTING_COST_1_COLOR = 625;
+    private int FIRST_IMP_COST_1_COLOR;
+    private float SECOND_IMP_4_COLOR;
+
+    SharedPreferences databasePref;
+    final String DATABASE = "MyData";
 
     Switch laminationSwitch;
     TextView sizeText;
@@ -35,6 +40,11 @@ public class StickerCostSingleColor extends AppCompatActivity {
         setContentView(R.layout.activity_sticker_cost_single_color);
         getSupportActionBar().setTitle("Sticker Cost Single Side");
 
+        databasePref = getApplicationContext().getSharedPreferences(DATABASE, MODE_PRIVATE);
+        FIRST_IMP_COST_1_COLOR = databasePref.getInt(getResources().getString(R.string.SINGLE_FIRST_IMP), Integer.parseInt(getResources().getString(R.string.SINGLE_FIRST_IMP_VALUE)));
+        SECOND_IMP_4_COLOR = databasePref.getFloat(getResources().getString(R.string.SINGLE_SECOND_IMP), Float.parseFloat(getResources().getString(R.string.SINGLE_SECOND_IMP_VALUE)));
+        getSupportActionBar().setTitle("Sticker Cost Single Color ("+SECOND_IMP_4_COLOR+") ("+FIRST_IMP_COST_1_COLOR+")" );
+
         //Formula TextView Casting
         sizeText=(TextView) findViewById(R.id.sizeTextSCF);
         sizeText.setText("15 x 20");
@@ -42,6 +52,7 @@ public class StickerCostSingleColor extends AppCompatActivity {
         impressionView = (TextView) findViewById(R.id.impressionSCF);
         stickerCostView = (TextView) findViewById(R.id.stickerCostSCF);
         ctpCostView = (TextView) findViewById(R.id.ctpCostSCF);
+        ctpCostView.setText(databasePref.getInt(getResources().getString(R.string.SINGLE_CTP_RATE), Integer.parseInt(getResources().getString(R.string.SINGLE_CTP_RATE_VALUE)))+"");
         printingCostView = (TextView) findViewById(R.id.printingCostSCF);
         totalCostView = (TextView) findViewById(R.id.totalCostSCF);
         costPerPcsView = (TextView) findViewById(R.id.costPerPcsSCF);
@@ -181,9 +192,9 @@ public class StickerCostSingleColor extends AppCompatActivity {
             stickerCost = impression*stickerRate;
 
             if (impression - 1000 < 0) {
-                printingCost = NORMAL_PRINTING_COST_1_COLOR;
+                printingCost = FIRST_IMP_COST_1_COLOR;
             } else {
-                printingCost = NORMAL_PRINTING_COST_1_COLOR + (impression - 1000);
+                printingCost = FIRST_IMP_COST_1_COLOR + (impression - 1000);
             }
             laminationCost = (int) Math.floor(3*impression);
             totalCost = (int) Math.ceil(stickerCost) + printingCost + ctpPlate + laminationCost;

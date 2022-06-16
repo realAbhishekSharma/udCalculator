@@ -105,9 +105,22 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="40dp"
-            android:layout_marginBottom="20dp"
             style="@style/textShow"
             android:text="paper Cost"
+            android:textSize="25dp"
+            android:background="@drawable/button_gradiant" />
+
+
+        <Button
+            android:id="@+id/setting"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            style="@style/textShow"
+            android:text="Settings"
             android:textSize="25dp"
             android:background="@drawable/button_gradiant" />
 

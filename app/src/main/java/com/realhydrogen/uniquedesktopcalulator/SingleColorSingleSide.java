@@ -3,6 +3,7 @@ package com.realhydrogen.uniquedesktopcalulator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -27,7 +28,11 @@ public class SingleColorSingleSide extends AppCompatActivity {
     ArrayList<String> gsmArray = new ArrayList<>();
     String[] gsmList = new String[]{"Select","58","70","90","100","130","150", "200", "230", "250", "300"};
     private final float W_KG_VALUE  = 1550000F;
-    private final int NORMAL_PRINTING_COST_1_COLOR = 625;
+    private int FIRST_IMP_COST_1_COLOR;
+    private float SECOND_IMP_1_COLOR;
+
+    SharedPreferences databasePref;
+    final String DATABASE = "MyData";
 
     Spinner sizeSpinner, gsmSpinner;
     Switch laminationSwitch;
@@ -50,7 +55,11 @@ public class SingleColorSingleSide extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_color_single_side);
-        getSupportActionBar().setTitle("Single Color Single Side");
+
+        databasePref = getApplicationContext().getSharedPreferences(DATABASE, MODE_PRIVATE);
+        FIRST_IMP_COST_1_COLOR = databasePref.getInt(getResources().getString(R.string.SINGLE_FIRST_IMP), Integer.parseInt(getResources().getString(R.string.SINGLE_FIRST_IMP_VALUE)));
+        SECOND_IMP_1_COLOR = databasePref.getFloat(getResources().getString(R.string.SINGLE_SECOND_IMP), Float.parseFloat(getResources().getString(R.string.SINGLE_SECOND_IMP_VALUE)));
+        getSupportActionBar().setTitle("Single Color Single Side ("+SECOND_IMP_1_COLOR+") ("+FIRST_IMP_COST_1_COLOR+")" );
 
         //Formula TextView Casting
         weightPerSheetView = (TextView) findViewById(R.id.weightPerSheet);
@@ -68,6 +77,7 @@ public class SingleColorSingleSide extends AppCompatActivity {
         reset = (Button) findViewById(R.id.reset);
         laminationSwitch = (Switch) findViewById(R.id.laminationSwitch);
         ctpCost = (TextView) findViewById(R.id.ctpCost);
+        ctpCost.setText(databasePref.getInt(getResources().getString(R.string.SINGLE_CTP_RATE), Integer.parseInt(getResources().getString(R.string.SINGLE_CTP_RATE_VALUE)))+"");
         ratePerKGInput = (EditText) findViewById(R.id.ratePerKG);
         splitSizeInput = (EditText) findViewById(R.id.splitSize);
         quantityInput = (EditText) findViewById(R.id.quantity);
@@ -354,9 +364,9 @@ public class SingleColorSingleSide extends AppCompatActivity {
             paperCost = costPerSheet * totalSheet;
 
             if (impression - 1000 < 0) {
-                printingCost = NORMAL_PRINTING_COST_1_COLOR;
+                printingCost = FIRST_IMP_COST_1_COLOR;
             } else {
-                printingCost = NORMAL_PRINTING_COST_1_COLOR + (int) Math.floor(0.125*(impression - 1000));
+                printingCost = FIRST_IMP_COST_1_COLOR + (int) Math.ceil((float)(impression - 1000)*SECOND_IMP_1_COLOR);
             }
 
             lamination = (int) (0.01F * length * breadth * totalSheet);
