@@ -61,7 +61,7 @@ public class Setting extends AppCompatActivity {
             public boolean onLongClick(View view) {
                 resetToDefault();
                 setAllValue();
-                Toast.makeText(getApplicationContext(), "Long Press.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Data Reset To Default.", Toast.LENGTH_LONG).show();
                 return true;
             }
         });

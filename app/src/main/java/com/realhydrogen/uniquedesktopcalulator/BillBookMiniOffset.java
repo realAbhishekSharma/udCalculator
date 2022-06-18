@@ -635,7 +635,7 @@ public class BillBookMiniOffset extends AppCompatActivity {
                 }
             }*/
 
-            paperCost = (int) Math.ceil((copies-1)*onePaperSheet*PAPER_RATE +(onePaperSheet));
+            paperCost = (int) (Math.ceil((copies-1)*onePaperSheet*PAPER_RATE +(onePaperSheet*WHITE)));
 
 
             if (impression - 1000 < 0) {
